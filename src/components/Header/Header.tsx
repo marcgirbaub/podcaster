@@ -4,9 +4,9 @@ import HeaderStyled from "./HeaderStyled";
 const Header = (): JSX.Element => {
   return (
     <HeaderStyled className="header">
-      <Link to={"/"} className="header__title">
-        Podcaster
-      </Link>
+      <h1 className="header__title">
+        <Link to={"/"}>Podcaster</Link>
+      </h1>
     </HeaderStyled>
   );
 };
