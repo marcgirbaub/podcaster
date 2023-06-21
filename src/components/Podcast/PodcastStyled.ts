@@ -37,6 +37,7 @@ const PodcastStyled = styled.div`
     &__name {
       text-transform: uppercase;
       font-weight: 600;
+      font-size: 1rem;
     }
 
     &__artist {
