@@ -3,7 +3,7 @@ export interface Image {
   attributes: { height: string };
 }
 
-export interface Podcast {
+export interface PodcastStructure {
   "im:name": { label: string };
   "im:image": Image[];
   summary: { label: string };
@@ -35,7 +35,7 @@ export interface Link {
 export interface TopPodcastsResponse {
   feed: {
     author: { name: { label: string }; uri: { label: string } };
-    entry: Podcast[];
+    entry: PodcastStructure[];
     updated: { label: string };
     rights: { label: string };
     title: { label: string };
