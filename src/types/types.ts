@@ -28,6 +28,7 @@ export interface PodcastStructure {
   "im:releaseDate": { label: string; attributes: { label: string } };
 }
 
+export type PodcastListStructure = PodcastStructure[];
 export interface Link {
   attributes: { rel: string; type?: string; href: string };
 }

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 const PodcastStyled = styled.div`
-  margin-top: 200px;
+  margin-top: 90px;
   width: 260px;
   min-height: 160px;
   display: flex;
