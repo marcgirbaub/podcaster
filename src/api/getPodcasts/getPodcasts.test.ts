@@ -5,7 +5,7 @@ import { server } from "../../mocks/server";
 import { errorHandlers } from "../../mocks/handlers";
 
 afterEach(() => {
-  vi.clearAllTimers();
+  vi.clearAllMocks();
 });
 
 describe("Given a getPodcasts function", () => {
@@ -23,6 +23,7 @@ describe("Given a getPodcasts function", () => {
 
   describe("When there is an error with the request", () => {
     beforeEach(() => server.resetHandlers(...errorHandlers));
+
     test("Then it should throw an error", async () => {
       const limit = 2;
       const genre = 1310;
