@@ -12,7 +12,10 @@ describe("Given a Podcast component", () => {
 
       render(<Podcast podcast={joeBuddenPodcast} />);
 
-      const podcastName = screen.getByText(expectedName);
+      const podcastName = screen.getByRole("heading", {
+        level: 2,
+        name: expectedName,
+      });
       const podcastArtist = screen.getByText(`Author: ${expectedArtist}`);
       const podcastImage = screen.getByRole("img", { name: expectedImageAlt });
 

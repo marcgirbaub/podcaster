@@ -16,7 +16,7 @@ const Podcast = ({ podcast }: PodcastProps): JSX.Element => {
         height={170}
       />
       <div className="podcast__info info">
-        <span className="info__name">{podcast["im:name"].label}</span>
+        <h2 className="info__name">{podcast["im:name"].label}</h2>
         <span className="info__artist">
           Author: {podcast["im:artist"].label}
         </span>
