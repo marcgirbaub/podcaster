@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 
 const LayoutStyled = styled.div`
   .main-content {
-    padding-top: 7ch;
+    padding: 40px 24px;
+    padding-top: 70px;
   }
 `;
 

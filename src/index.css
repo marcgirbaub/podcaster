@@ -29,6 +29,10 @@ li {
   text-decoration: none;
 }
 
+input {
+  outline: none;
+}
+
 a,
 :visited {
   text-decoration: none;
