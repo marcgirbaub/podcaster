@@ -1,8 +1,9 @@
 import { describe, expect, test } from "vitest";
 import { fridayNightPodcast, joeBuddenPodcast } from "../../mocks/mockPodcasts";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import PodcastList from "./PodcastList";
 import { PodcastListStructure } from "../../types/types";
+import renderRouterWithProviders from "../../utils/renderRouterWithProviders";
 
 describe("Given a PodcastList component", () => {
   describe("When rendered with a list of two Podcasts", () => {
@@ -14,7 +15,7 @@ describe("Given a PodcastList component", () => {
         fridayNightPodcast,
       ];
 
-      render(<PodcastList podcasts={podcastsList} />);
+      renderRouterWithProviders(<PodcastList podcasts={podcastsList} />);
 
       const joeBuddenPodcastImage = screen.getByRole("img", {
         name: `${joeBuddenPodcastName} official poster`,
