@@ -5,9 +5,15 @@ import PodcastList from "../../components/PodcastList/PodcastList";
 import useGetPodcasts from "../../hooks/useGetPodcasts/useGetPodcasts";
 import { PodcastListStructure } from "../../types/types";
 import HomeStyled from "./HomeStyled";
+import { useAppDispatch } from "../../store";
+import {
+  setIsLoadingActionCreator,
+  unsetIsLoadingActionCreator,
+} from "../../store/features/ui/uiSlice";
 
 const Home = (): JSX.Element => {
-  const { data, error, isError } = useGetPodcasts(limit, genre);
+  const { data, error, isError, isLoading } = useGetPodcasts(limit, genre);
+  const dispatch = useAppDispatch();
 
   const [numberOfPodcasts, setNumberOfPodcasts] = useState(0);
   const [filter, setFilter] = useState("");
@@ -24,6 +30,12 @@ const Home = (): JSX.Element => {
       setNumberOfPodcasts(data.feed.entry.length);
     }
   }, [data, filter, filteredPodcasts.length]);
+
+  useEffect(() => {
+    isLoading
+      ? dispatch(setIsLoadingActionCreator())
+      : dispatch(unsetIsLoadingActionCreator());
+  }, [dispatch, isLoading]);
 
   if (isError) {
     console.log(error);
