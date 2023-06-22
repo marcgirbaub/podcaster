@@ -7,6 +7,7 @@ export const initialPodcastsState: PodcastsState = {
   name: "",
   description: "",
   image: "",
+  id: "",
 };
 
 const podcastsSlice = createSlice({
@@ -22,6 +23,7 @@ const podcastsSlice = createSlice({
       description: payload.summary.label,
       image: payload["im:image"][2].label,
       name: payload["im:name"].label,
+      id: payload.id.attributes["im:id"],
     }),
   },
 });
