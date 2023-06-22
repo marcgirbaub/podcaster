@@ -2,8 +2,11 @@ import { PreloadedState } from "@reduxjs/toolkit";
 import { combineReducers } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { uiReducer } from "./features/ui/uiSlice";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  ui: uiReducer,
+});
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
