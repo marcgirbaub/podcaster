@@ -1,7 +1,8 @@
 import { describe, test, expect } from "vitest";
 import { joeBuddenPodcast } from "../../mocks/mockPodcasts";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import Podcast from "./Podcast";
+import renderWithProviders from "../../utils/renderWithProviders";
 
 describe("Given a Podcast component", () => {
   describe("When rendered with the Joe Budden podcast", () => {
@@ -10,7 +11,7 @@ describe("Given a Podcast component", () => {
       const expectedArtist = joeBuddenPodcast["im:artist"].label;
       const expectedImageAlt = `${joeBuddenPodcast["im:name"].label} official poster`;
 
-      render(<Podcast podcast={joeBuddenPodcast} />);
+      renderWithProviders(<Podcast podcast={joeBuddenPodcast} />);
 
       const podcastName = screen.getByRole("heading", {
         level: 2,
