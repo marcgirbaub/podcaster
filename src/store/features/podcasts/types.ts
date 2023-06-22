@@ -3,4 +3,5 @@ export interface PodcastsState {
   artist: string;
   description: string;
   image: string;
+  id: string;
 }

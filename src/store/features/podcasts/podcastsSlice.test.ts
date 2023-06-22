@@ -17,6 +17,7 @@ describe("Given a podcastsReducer reducer", () => {
         artist: podcastToLoad["im:artist"].label,
         description: podcastToLoad.summary.label,
         image: podcastToLoad["im:image"][2].label,
+        id: podcastToLoad.id.attributes["im:id"],
       };
 
       const loadPodcastAction = loadPodcastActionCreator(podcastToLoad);
