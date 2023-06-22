@@ -6,7 +6,7 @@ const HomeStyled = styled.div`
     justify-content: flex-end;
     align-items: center;
     gap: 14px;
-    padding: 10px 0 30px;
+    padding-bottom: 30px;
 
     &__podcasts-number {
       background-color: #0085d1;
