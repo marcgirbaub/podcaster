@@ -25,10 +25,11 @@ const PodcastProfile = ({
         </Link>
       </div>
       <div className="profile__info-container">
-        <h3 className="profile__name">
-          <Link to={podcastDetailRoute}>{name}</Link>
-        </h3>
+        <Link to={podcastDetailRoute}>
+          <h3 className="profile__name">{name}</h3>
+        </Link>
         <span className="profile__artist">
+          {" "}
           by <Link to={podcastDetailRoute}>{artist}</Link>
         </span>
       </div>

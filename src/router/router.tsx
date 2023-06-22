@@ -3,6 +3,7 @@ import App from "../components/App/App";
 import Home from "../pages/Home/Home";
 import endpoints from "./endpoints";
 import DetailPodcastPage from "../pages/DetailPodcastPage/DetailPodcastPage";
+import DetailEpisodePage from "../pages/DetailEpisodePage/DetailEpisodePage";
 
 const routes: RouteObject[] = [
   {
@@ -10,6 +11,7 @@ const routes: RouteObject[] = [
     children: [
       { path: "/", element: <Home /> },
       { path: endpoints.detail, element: <DetailPodcastPage /> },
+      { path: endpoints.episodeDetail, element: <DetailEpisodePage /> },
     ],
   },
 ];
