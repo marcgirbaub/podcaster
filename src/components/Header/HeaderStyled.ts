@@ -6,7 +6,7 @@ const HeaderStyled = styled.header`
   top: 0;
   z-index: 2;
   height: 54px;
-  padding: 14px;
+  padding: 14px 24px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   background-color: #fff;
 
