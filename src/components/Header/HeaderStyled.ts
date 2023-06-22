@@ -9,6 +9,9 @@ const HeaderStyled = styled.header`
   padding: 14px 24px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   .header {
     &__title {
