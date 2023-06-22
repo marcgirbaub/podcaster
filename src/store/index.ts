@@ -3,9 +3,11 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { uiReducer } from "./features/ui/uiSlice";
+import { podcastsReducer } from "./features/podcasts/podcastsSlice";
 
 const rootReducer = combineReducers({
   ui: uiReducer,
+  podcasts: podcastsReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
