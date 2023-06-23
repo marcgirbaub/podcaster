@@ -8,17 +8,19 @@ interface useGetPodcastsStructure {
   isLoading: boolean;
   isError: boolean;
   error: unknown;
+  isFetching: boolean;
 }
 
 const useGetPodcasts = (
   limit: number,
   genre: number
 ): useGetPodcastsStructure => {
-  const { data, isLoading, isError, error } = useQuery(getPodcastsQuery, () =>
-    getPodcasts(limit, genre)
+  const { data, isLoading, isError, error, isFetching } = useQuery(
+    getPodcastsQuery,
+    () => getPodcasts(limit, genre)
   );
 
-  return { data, isLoading, isError, error };
+  return { data, isLoading, isError, error, isFetching };
 };
 
 export default useGetPodcasts;
