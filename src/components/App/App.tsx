@@ -4,7 +4,9 @@ import { Provider } from "react-redux";
 import { store } from "../../store";
 
 const App = (): JSX.Element => {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: { queries: { refetchOnWindowFocus: false } },
+  });
 
   return (
     <QueryClientProvider client={queryClient}>
