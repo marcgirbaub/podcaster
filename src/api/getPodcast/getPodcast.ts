@@ -34,7 +34,12 @@ const getPodcast = async (id: string) => {
 
   response.data.fetchDate = Date.now();
 
-  localStorage.setItem(url, JSON.stringify(response.data));
+  try {
+    localStorage.setItem(url, JSON.stringify(response.data));
+  } catch (error) {
+    localStorage.clear();
+    localStorage.setItem(url, JSON.stringify(response.data));
+  }
 
   return response.data;
 };
