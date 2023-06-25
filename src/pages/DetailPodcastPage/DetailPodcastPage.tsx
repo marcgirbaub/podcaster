@@ -18,9 +18,8 @@ const DetailPodcastPage = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { id } = useParams();
 
-  const { data, isFetching, podcastDetail, isError, error } = useLoadPodcast(
-    id!
-  );
+  const { data, isFetching, podcastDetail, isError, error, isLoading } =
+    useLoadPodcast(id!);
 
   if (isError) {
     console.log(error);
@@ -46,7 +45,7 @@ const DetailPodcastPage = (): JSX.Element => {
 
   const episodeEndpoint = `/podcast/${id}/episode/`;
 
-  if (isFetching) return <></>;
+  if (isFetching || isLoading) return <></>;
 
   return (
     <DetailPodcastPageStyled>
