@@ -11,7 +11,7 @@ import {
 import { PodcastInfo } from "../../types/types";
 import DetailPodcastPageStyled from "./DetailPodcastPageStyled";
 import transformMsToDuration from "../../utils/transformMsToDuration";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PodcastsState } from "../../store/features/podcasts/types";
 
 const DetailPodcastPage = (): JSX.Element => {
@@ -38,6 +38,8 @@ const DetailPodcastPage = (): JSX.Element => {
   const listOfEpisodes = data?.results.filter(
     (episode) => !Object.hasOwn(episode, "currency")
   );
+
+  const episodeEndpoint = `/podcast/${id}/episode/`;
 
   if (isFetching) return <></>;
 
@@ -66,12 +68,19 @@ const DetailPodcastPage = (): JSX.Element => {
                     key={`${episode.releaseDate}-${episode.trackTimeMillis}`}
                     className="episode"
                   >
-                    <span className="episode__name">{episode.trackName}</span>
+                    <Link
+                      to={`${episodeEndpoint}${episode.trackId}`}
+                      className="episode__name"
+                    >
+                      <span>{episode.trackName}</span>
+                    </Link>
                     <span className="episode__date">
                       {moment(episode.releaseDate).utc().format("DD-MM-YYYY")}
                     </span>
                     <span className="episode__duration">
-                      {transformMsToDuration(episode.trackTimeMillis)}
+                      {Object.hasOwn(episode, "trackTimeMillis")
+                        ? transformMsToDuration(episode.trackTimeMillis)
+                        : "n/a"}
                     </span>
                   </li>
                 );
@@ -81,12 +90,19 @@ const DetailPodcastPage = (): JSX.Element => {
                     key={episode.releaseDate}
                     className="episode episode--odd"
                   >
-                    <span className="episode__name">{episode.trackName}</span>
+                    <Link
+                      to={`${episodeEndpoint}${episode.trackId}`}
+                      className="episode__name"
+                    >
+                      <span>{episode.trackName}</span>
+                    </Link>
                     <span className="episode__date">
                       {moment(episode.releaseDate).utc().format("DD-MM-YYYY")}
                     </span>
                     <span className="episode__duration">
-                      {transformMsToDuration(episode.trackTimeMillis)}
+                      {Object.hasOwn(episode, "trackTimeMillis")
+                        ? transformMsToDuration(episode.trackTimeMillis)
+                        : "n/a"}
                     </span>
                   </li>
                 );

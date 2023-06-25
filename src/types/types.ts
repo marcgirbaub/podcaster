@@ -47,7 +47,7 @@ export interface TopPodcastsResponse {
   };
 }
 
-interface PodcastEpisode {
+export interface PodcastEpisode {
   artworkUrl60: string;
   trackViewUrl: string;
   contentAdvisoryRating: string;
