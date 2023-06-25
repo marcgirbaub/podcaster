@@ -26,6 +26,7 @@ const DetailEpisodePageStyled = styled.div`
     &__description {
       font-style: italic;
       white-space: pre-wrap;
+      line-height: 20px;
     }
   }
 

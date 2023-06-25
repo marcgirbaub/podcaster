@@ -38,6 +38,7 @@ const PodcastProfileStyled = styled.div`
     &__description {
       font-style: italic;
       word-wrap: break-word;
+      line-height: 20px;
 
       &-container {
         display: flex;
