@@ -23,7 +23,7 @@ describe("Given a useGetPodcasts hook", () => {
       });
 
       await waitFor(() =>
-        expect(result.current.data).toStrictEqual(expectedPodcasts)
+        expect(result.current.data?.feed).toStrictEqual(expectedPodcasts.feed)
       );
     });
   });
