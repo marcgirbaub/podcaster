@@ -16,6 +16,12 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: { ecmaVersion: "latest", sourceType: "module" },
   plugins: ["react-refresh", "jsx-a11y", "react-hooks"],
+  overrides: [
+    {
+      files: ["src/**/utils/**/isDataExpired.ts"],
+      rules: { "@typescript-eslint/no-non-null-assertion": "off" },
+    },
+  ],
   rules: {
     "react-refresh/only-export-components": "warn",
     "no-console": "error",

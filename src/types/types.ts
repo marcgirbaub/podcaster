@@ -35,6 +35,7 @@ export interface Link {
 }
 
 export interface TopPodcastsResponse {
+  fetchDate?: number;
   feed: {
     author: { name: { label: string }; uri: { label: string } };
     entry: PodcastStructure[];
@@ -112,4 +113,5 @@ export interface PodcastInfo {
 export interface PodcastEpisodesApiResponse {
   resultCount: number;
   results: (PodcastInfo | PodcastEpisode)[];
+  fetchDate?: number;
 }
