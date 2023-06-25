@@ -28,6 +28,7 @@ module.exports = {
       files: [
         "src/pages/Home/Home.tsx",
         "src/pages/DetailPodcastPage/DetailPodcastPage.tsx",
+        "src/api/**",
       ],
       rules: { "no-console": "off" },
     },
