@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { useEffect, useState } from "react";
 import { genre, limit } from "../../api/apiEndpoints";
 import PodcastList from "../../components/PodcastList/PodcastList";

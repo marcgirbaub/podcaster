@@ -18,8 +18,18 @@ module.exports = {
   plugins: ["react-refresh", "jsx-a11y", "react-hooks"],
   overrides: [
     {
-      files: ["src/**/utils/**/isDataExpired.ts"],
+      files: [
+        "src/**/utils/**/isDataExpired.ts",
+        "src/pages/DetailPodcastPage/DetailPodcastPage.tsx",
+      ],
       rules: { "@typescript-eslint/no-non-null-assertion": "off" },
+    },
+    {
+      files: [
+        "src/pages/Home/Home.tsx",
+        "src/pages/DetailPodcastPage/DetailPodcastPage.tsx",
+      ],
+      rules: { "no-console": "off" },
     },
   ],
   rules: {
