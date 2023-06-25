@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { useEffect } from "react";
 import moment from "moment";
 import PodcastProfile from "../../components/PodcastProfile/PodcastProfile";
@@ -19,7 +18,13 @@ const DetailPodcastPage = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { id } = useParams();
 
-  const { data, isFetching, podcastDetail } = useLoadPodcast(id!);
+  const { data, isFetching, podcastDetail, isError, error } = useLoadPodcast(
+    id!
+  );
+
+  if (isError) {
+    console.log(error);
+  }
 
   const podcastToLoad: PodcastsState = {
     name: podcastDetail?.["im:name"].label ?? "",

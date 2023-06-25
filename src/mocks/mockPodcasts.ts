@@ -1,4 +1,9 @@
-import { PodcastStructure, TopPodcastsResponse } from "../types/types";
+import {
+  PodcastEpisodesApiResponse,
+  PodcastInfo,
+  PodcastStructure,
+  TopPodcastsResponse,
+} from "../types/types";
 
 export const joeBuddenPodcast: PodcastStructure = {
   "im:name": {
@@ -212,4 +217,42 @@ export const mockPodcastsResponse: TopPodcastsResponse = {
         "https://mzstoreservices-int.itunes.apple.com/us/rss/toppodcasts/limit=2/genre=1310/json",
     },
   },
+};
+
+export const mockDetailPodcastResponse: PodcastEpisodesApiResponse = {
+  resultCount: 0,
+  results: [],
+};
+
+export const mockPodcastInfo: PodcastInfo = {
+  wrapperType: "",
+  kind: "",
+  collectionId: 0,
+  trackId: 0,
+  artistName: "",
+  collectionName: "",
+  trackName: "",
+  collectionCensoredName: "",
+  trackCensoredName: "",
+  collectionViewUrl: "",
+  feedUrl: "",
+  trackViewUrl: "",
+  artworkUrl30: "",
+  artworkUrl60: "",
+  artworkUrl100: "",
+  collectionPrice: 0,
+  trackPrice: 0,
+  collectionHdPrice: 0,
+  releaseDate: "",
+  collectionExplicitness: "",
+  trackExplicitness: "",
+  trackCount: 0,
+  trackTimeMillis: 0,
+  country: "",
+  currency: "",
+  primaryGenreName: "",
+  contentAdvisoryRating: "",
+  artworkUrl600: "",
+  genreIds: [],
+  genres: [],
 };
