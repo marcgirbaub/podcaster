@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { PodcastsState } from "../../store/features/podcasts/types";
 import PodcastProfileStyled from "./PodcastProfileStyled";
+import convertStringToLink from "../../utils/convertStringToLink";
 
 interface PodcastProfileProps {
   podcast: PodcastsState;
@@ -10,6 +11,8 @@ const PodcastProfile = ({
   podcast: { artist, description, image, name, id },
 }: PodcastProfileProps): JSX.Element => {
   const podcastDetailRoute = `../podcast/${id}`;
+
+  const linkedDescription = convertStringToLink(description);
 
   return (
     <PodcastProfileStyled>
@@ -36,7 +39,10 @@ const PodcastProfile = ({
         </div>
         <div className="profile__description-container">
           <h4 className="profile__description-title">Description:</h4>
-          <p className="profile__description">{description}</p>
+          <p
+            dangerouslySetInnerHTML={{ __html: linkedDescription }}
+            className="profile__description"
+          ></p>
         </div>
       </div>
     </PodcastProfileStyled>
