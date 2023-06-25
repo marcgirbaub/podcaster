@@ -5,7 +5,9 @@ import { store } from "../../store";
 
 const App = (): JSX.Element => {
   const queryClient = new QueryClient({
-    defaultOptions: { queries: { refetchOnWindowFocus: false } },
+    defaultOptions: {
+      queries: { refetchOnWindowFocus: false, staleTime: 24 * 60 * 60 * 1000 },
+    },
   });
 
   return (

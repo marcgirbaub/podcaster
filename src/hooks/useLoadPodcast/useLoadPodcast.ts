@@ -6,7 +6,7 @@ import { genre, limit } from "../../api/apiEndpoints";
 
 const useLoadPodcast = (id: string) => {
   const { data, isError, error, isLoading, isFetching } = useQuery(
-    getPodcastEpisodesQuery,
+    [getPodcastEpisodesQuery, id],
     () => getPodcast(id)
   );
 

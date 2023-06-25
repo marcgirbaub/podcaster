@@ -3,8 +3,8 @@ import styled from "@emotion/styled";
 const PodcastProfileStyled = styled.div`
   .profile {
     &__container {
-      padding: 20px;
-      max-width: 300px;
+      padding: 20px 16px;
+      width: 280px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       max-height: fit-content;
     }
