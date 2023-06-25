@@ -2,12 +2,11 @@ import styled from "@emotion/styled";
 
 const DetailPodcastPageStyled = styled.div`
   display: flex;
-  justify-content: space-around;
-  gap: 30px;
+  justify-content: center;
+  gap: 60px;
 
   .episodes {
-    min-width: 650px;
-    max-width: 900px;
+    width: 700px;
     display: flex;
     flex-direction: column;
     gap: 30px;
