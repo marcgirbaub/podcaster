@@ -2,11 +2,26 @@ import { AxiosResponse } from "axios";
 import apiClient from "../apiClient";
 import getPodcastsUrl from "../getPodcastsUrl/getPodcastsUrl";
 import { TopPodcastsResponse } from "../../types/types";
+import isDataExpired from "../../utils/isDataExpired";
 
 const getPodcasts = async (limit: number, genre: number) => {
-  const response: AxiosResponse<TopPodcastsResponse> = await apiClient.get(
-    getPodcastsUrl(limit, genre)
-  );
+  const url = getPodcastsUrl(limit, genre);
+
+  const localStoragedData = JSON.parse(
+    localStorage.getItem(url) as string
+  ) as TopPodcastsResponse;
+
+  if (localStoragedData && !isDataExpired(localStoragedData)) {
+    return localStoragedData;
+  }
+
+  localStorage.removeItem(url);
+
+  const response: AxiosResponse<TopPodcastsResponse> = await apiClient.get(url);
+
+  response.data.fetchDate = Date.now();
+
+  localStorage.setItem(url, JSON.stringify(response.data));
 
   return response.data;
 };
