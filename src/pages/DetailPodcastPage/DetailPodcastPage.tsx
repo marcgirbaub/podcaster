@@ -12,6 +12,7 @@ import DetailPodcastPageStyled from "./DetailPodcastPageStyled";
 import transformMsToDuration from "../../utils/transformMsToDuration";
 import { Link, useParams } from "react-router-dom";
 import { PodcastsState } from "../../store/features/podcasts/types";
+import { Skeleton } from "@mui/material";
 
 const DetailPodcastPage = (): JSX.Element => {
   const podcast = useAppSelector((state) => state.podcasts);
@@ -45,7 +46,24 @@ const DetailPodcastPage = (): JSX.Element => {
 
   const episodeEndpoint = `/podcast/${id}/episode/`;
 
-  if (isFetching || isLoading) return <></>;
+  if (isFetching || isLoading) {
+    return (
+      <DetailPodcastPageStyled>
+        <Skeleton
+          variant="rectangular"
+          width={280}
+          height={600}
+          sx={{ borderRadius: 1 }}
+        />
+        <Skeleton
+          variant="rectangular"
+          width={600}
+          height={800}
+          sx={{ borderRadius: 1 }}
+        />
+      </DetailPodcastPageStyled>
+    );
+  }
 
   return (
     <DetailPodcastPageStyled>
