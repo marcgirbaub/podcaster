@@ -16,6 +16,7 @@ The app consumes data from the iTunes API and shows the top 100 podcasts in the 
 - **Axios**
 - **React Router**
 - **Vitest & React Testing Library**
+- **Cypress**
 - **ESLint & Prettier**
 - **Github Actions**
 
@@ -49,9 +50,16 @@ To run the **test** suite, use the following command:
 npm test // npm run test:coverage
 ```
 
+To run e2e tests, run the following command and run all specs on cypress:
+
+```
+npm run cypress
+```
+
 ## **Additional information and comments**
 
 - Developed following **SOLID** and **Clean Code** principles.
 - The app has been tested using **Vitest** and **React Testing Library**, with a **test coverage up to ~80%**.
+- **E2E testing** has been performed with **cypress**.
 - API requests are **cached** for 24hours so that a new request to an already requested url is only done when the initial request was more than a day ago.
 - The app is a **Single Page Application** so that it dynamically rewrites a current page with new data instead of loading the enitre page.
