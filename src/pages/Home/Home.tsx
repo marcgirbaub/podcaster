@@ -9,9 +9,13 @@ import {
   setIsLoadingActionCreator,
   unsetIsLoadingActionCreator,
 } from "../../store/features/ui/uiSlice";
+import SkeletonPodcastList from "../../components/SkeletonPodcastList/SkeletonPodcastList";
 
 const Home = (): JSX.Element => {
-  const { data, error, isError, isLoading } = useGetPodcasts(limit, genre);
+  const { data, error, isError, isLoading, isFetching } = useGetPodcasts(
+    limit,
+    genre
+  );
   const dispatch = useAppDispatch();
 
   const [numberOfPodcasts, setNumberOfPodcasts] = useState(0);
@@ -58,6 +62,25 @@ const Home = (): JSX.Element => {
       setFilteredPodcasts(filteredPodcasts);
     });
   };
+
+  if (isLoading || isFetching) {
+    return (
+      <HomeStyled>
+        <div className="info">
+          <span className="info__podcasts-number">0</span>
+          <input
+            className="info__filter"
+            type="text"
+            name="filter"
+            placeholder="Filter podcasts..."
+            onChange={handleInputChange}
+            disabled={isFetching || isLoading}
+          ></input>
+        </div>
+        <SkeletonPodcastList />
+      </HomeStyled>
+    );
+  }
 
   return (
     <HomeStyled>
