@@ -4,6 +4,7 @@ import {
   entityParam,
   limitNumber,
   mediaParam,
+  plainUrl,
   podcastEpisodesEndpoint,
 } from "../apiEndpoints";
 import { PodcastEpisodesApiResponse } from "../../types/types";
@@ -22,26 +23,49 @@ const getPodcast = async (id: string) => {
 
   localStorage.removeItem(url);
 
-  const response: AxiosResponse<PodcastEpisodesApiResponse> =
-    await apiClient.get(podcastEpisodesEndpoint, {
-      params: {
-        media: mediaParam,
-        entity: entityParam,
-        id,
-        limit: limitNumber,
-      },
-    });
-
-  response.data.fetchDate = Date.now();
-
   try {
-    localStorage.setItem(url, JSON.stringify(response.data));
-  } catch (error) {
-    localStorage.clear();
-    localStorage.setItem(url, JSON.stringify(response.data));
-  }
+    const response: AxiosResponse<PodcastEpisodesApiResponse> =
+      await apiClient.get(podcastEpisodesEndpoint, {
+        params: {
+          media: mediaParam,
+          entity: entityParam,
+          id,
+          limit: limitNumber,
+        },
+      });
 
-  return response.data;
+    response.data.fetchDate = Date.now();
+
+    try {
+      localStorage.setItem(url, JSON.stringify(response.data));
+    } catch (error) {
+      localStorage.clear();
+      localStorage.setItem(url, JSON.stringify(response.data));
+    }
+
+    return response.data;
+  } catch (error) {
+    const response: AxiosResponse<PodcastEpisodesApiResponse> =
+      await apiClient.get(`${plainUrl}lookup?`, {
+        params: {
+          media: mediaParam,
+          entity: entityParam,
+          id,
+          limit: limitNumber,
+        },
+      });
+
+    response.data.fetchDate = Date.now();
+
+    try {
+      localStorage.setItem(url, JSON.stringify(response.data));
+    } catch (error) {
+      localStorage.clear();
+      localStorage.setItem(url, JSON.stringify(response.data));
+    }
+
+    return response.data;
+  }
 };
 
 export default getPodcast;
