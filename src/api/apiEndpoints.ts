@@ -1,5 +1,6 @@
 export const baseUrl =
   "https://cors-anywhere.herokuapp.com/https://itunes.apple.com/";
+export const plainUrl = "https://itunes.apple.com/";
 export const podcastsListEndpoint = "us/rss/toppodcasts/";
 export const podcastEpisodesEndpoint =
   "https://cors-anywhere.herokuapp.com/https://itunes.apple.com/lookup?";
