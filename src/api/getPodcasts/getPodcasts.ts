@@ -20,7 +20,7 @@ const getPodcasts = async (limit: number, genre: number) => {
 
   try {
     const response: AxiosResponse<TopPodcastsResponse> = await apiClient.get(
-      url
+      `${plainUrl}${url}`
     );
 
     response.data.fetchDate = Date.now();
@@ -35,7 +35,7 @@ const getPodcasts = async (limit: number, genre: number) => {
     return response.data;
   } catch (error) {
     const response: AxiosResponse<TopPodcastsResponse> = await apiClient.get(
-      `${plainUrl}${url}`
+      url
     );
 
     response.data.fetchDate = Date.now();
