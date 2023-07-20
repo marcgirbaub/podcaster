@@ -25,7 +25,7 @@ const getPodcast = async (id: string) => {
 
   try {
     const response: AxiosResponse<PodcastEpisodesApiResponse> =
-      await apiClient.get(podcastEpisodesEndpoint, {
+      await apiClient.get(`${plainUrl}lookup?`, {
         params: {
           media: mediaParam,
           entity: entityParam,
@@ -46,7 +46,7 @@ const getPodcast = async (id: string) => {
     return response.data;
   } catch (error) {
     const response: AxiosResponse<PodcastEpisodesApiResponse> =
-      await apiClient.get(`${plainUrl}lookup?`, {
+      await apiClient.get(podcastEpisodesEndpoint, {
         params: {
           media: mediaParam,
           entity: entityParam,
